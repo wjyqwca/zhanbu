@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 塔罗占卜</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <h1 class="title">AI 塔罗占卜</h1>
+            <p class="subtitle">输入问题，翻开三张牌，生成占卜解读。</p>
+        </header>
+
+        <main class="main">
+            <section class="panel panel--ask" aria-label="提问">
+                <label class="label" for="question">你的问题</label>
+                <textarea id="question" class="textarea" rows="2" maxlength="140" placeholder="例如：我最近事业运如何？"></textarea>
+
+                <label class="label label--mt" for="apiKey">DeepSeek API Key（可选）</label>
+                <input id="apiKey" class="input" type="password" inputmode="text" autocomplete="off" spellcheck="false"
+                    maxlength="200" placeholder="可选：请输入 sk-..." />
+
+                <div class="actions">
+                    <button id="startBtn" class="button" type="button">开始占卜</button>
+                    <span id="status" class="status" aria-live="polite"></span>
+                </div>
+            </section>
+
+            <section class="panel panel--cards" aria-label="塔罗牌">
+                <div id="cards" class="cards" aria-live="polite"></div>
+            </section>
+
+            <section class="panel panel--reading" aria-label="解读">
+                <h2 class="reading-title">占卜解读</h2>
+                <div id="reading" class="reading-text"></div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>
